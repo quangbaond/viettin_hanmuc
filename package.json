@@ -1,0 +1,33 @@
+{
+  "name": "lievchat",
+  "version": "1.0.0",
+  "description": "livechat by binnotech",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangbaond/livechat.git"
+  },
+  "keywords": [
+    "livechat"
+  ],
+  "author": "binnotech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quangbaond/livechat/issues"
+  },
+  "homepage": "https://github.com/quangbaond/livechat#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2",
+    "socket.io": "^4.7.5",
+    "socketio-file-upload": "^0.7.3",
+    "telegram-bot-api": "^2.0.1"
+  }
+}
