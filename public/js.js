@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    console.log(process.env.PORT);
     const socket = io('https://vietin.hbservice.site/');
     const images = []
     var uploader = new SocketIOFileUpload(socket);
