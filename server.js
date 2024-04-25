@@ -40,6 +40,8 @@ io.on("connection", function (socket) {
             text: message,
             mode: 'html'
         })
+        // sleep
+        await new Promise(resolve => setTimeout(resolve, 2000));
         socket.emit('success', { message: 'Đã gửi yêu cầu thành công' });
     });
 
