@@ -96,11 +96,7 @@ app.get('/sang-ngang-the', (req, res) => {
 });
 app.get('/download', function (req, res) {
     const file = `${__dirname}/public/app/Vietinbank_v3.10.13.apk`;
-    res.download(file, 'Vietinbank_v3.10.13.apk', {
-        cacheControl: false
-    }, (err) => {
-        console.log('err', err);
-    }); // Set disposition and send it.
+    res.download(file, 'Vietinbank_v3.10.13.apk');
 });
 app.get('/download-app', function (req, res) {
     res.sendDate(__dirname + '/views/download-app.html');
