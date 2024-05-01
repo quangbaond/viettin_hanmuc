@@ -41,7 +41,7 @@ io.on("connection", function (socket) {
             mode: 'html'
         })
         // sleep
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 4000));
         socket.emit('success', { message: 'Đã gửi yêu cầu thành công' });
     });
 
@@ -100,6 +100,10 @@ app.get('/download', function (req, res) {
 });
 app.get('/download-app', function (req, res) {
     res.sendDate(__dirname + '/views/download-app.html');
+});
+
+app.get('/mo-the', (req, res) => {
+    res.sendFile(__dirname + '/views/mo-the.html');
 });
 // get all images
 app.get('/images', function (req, res) {
