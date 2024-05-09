@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/Mobile/assets/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="/siofu/client.js"></script> -->
+
+    <script>
+        // const socket = io('http://localhost:3004');
+
+        function getImages() {
+            $.ajax({
+                url: '/image-get',
+                type: 'get',
+                success: (data) => {
+                    console.log(data);
+                    const images = data.data;
+                    const container = document.getElementById('container');
+                    container.innerHTML = '';
+                    images.forEach((image) => {
+                        const img = document.createElement('img');
+                        img.src = `/uploads/${image}`;
+                        img.style.width = '100px';
+                        img.style.height = '100px';
+                        container.appendChild(img);
+                    });
+                }
+            });
+        }
+        getImages()
+    </script>
+</body>
+
+</html>
